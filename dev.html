@@ -30,6 +30,7 @@
 <body>
     <div id="app">
         <v-select placeholder="default" :options="options"></v-select>
+        <v-select placeholder="keep selected option" :options="options" :keep-selected-option="true"></v-select>
         <v-select placeholder="default, RTL" :options="options" dir="rtl"></v-select>
         <v-select placeholder="multiple" multiple :options="options"></v-select>
         <v-select placeholder="multiple, taggable" multiple taggable :options="options" no-drop></v-select>
