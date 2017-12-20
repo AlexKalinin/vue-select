@@ -584,6 +584,15 @@
         type: String,
         default: 'auto'
       },
+
+      /**
+       * Keep selection if user selecting the same option
+       * @default true
+       */
+      keepSelectedOption: {
+        type: Boolean,
+        default: false
+      }
     },
 
     data() {
@@ -673,6 +682,8 @@
        */
       select(option) {
         if (this.isOptionSelected(option)) {
+          if (this.keepSelectedOption)
+            return;
           this.deselect(option)
         } else {
           if (this.taggable && !this.optionExists(option)) {
