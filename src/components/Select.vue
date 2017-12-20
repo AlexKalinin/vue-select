@@ -809,7 +809,7 @@
       onSelectedTagClick(){
         if(this.multiple || this.taggable)
           return;
-        this.onSearchFocus();
+        this.$refs.search.focus();
       },
 
       /**
