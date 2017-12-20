@@ -287,7 +287,7 @@
   <div :dir="dir" class="dropdown v-select" :class="dropdownClasses">
     <div ref="toggle" @mousedown.prevent="toggleDropdown" :class="['dropdown-toggle', 'clearfix']">
 
-      <span class="selected-tag" v-for="option in valueAsArray" v-bind:key="option.index">
+      <span class="selected-tag" v-for="option in valueAsArray" v-bind:key="option.index" @click="onSelectedTagClick">
         <slot name="selected-option" v-bind="option">
           {{ getOptionLabel(option) }}
         </slot>
@@ -804,6 +804,12 @@
         }
         this.open = false
         this.$emit('search:blur')
+      },
+
+      onSelectedTagClick(){
+        if(this.multiple || this.taggable)
+          return;
+        this.onSearchFocus();
       },
 
       /**
